@@ -18,10 +18,33 @@ function displayLibrary(){
     libraryContainer.innerHTML = '';
 
     myLibrary.forEach(book =>{
+        const bookDiv = document.createElement('div');
         const bookInfo = document.createElement('p');
-        bookInfo.textContent = `Title: ${book.title}, Author: ${book.author}, Pages:${book.pages}, Read:${book.read}`
+        const removeButton = document.createElement('button');
+        const readButton = document.createElement('button');
 
-        libraryContainer.appendChild(bookInfo);
+        bookInfo.textContent = `Title: ${book.title}, Author: ${book.author}, Pages:${book.pages}, Read:${book.read}`
+        removeButton.textContent = "Remove"
+        readButton.textContent = book.read === "Yes" ? "Read" : "Not Read";
+
+        removeButton.addEventListener('click', function(){
+            const bookIndex = myLibrary.indexOf(book);
+            if(bookIndex !== 1){
+                myLibrary.splice(bookIndex, 1);
+                displayLibrary();
+            }
+        })
+
+        readButton.addEventListener('click', function(){
+            book.read = book.read === "Yes" ? "No" : "Yes";
+            displayLibrary();
+        })
+    
+        bookDiv.appendChild(bookInfo);
+        bookDiv.appendChild(removeButton);
+        bookDiv.appendChild(readButton);
+
+        libraryContainer.appendChild(bookDiv);
     })
 }
 
