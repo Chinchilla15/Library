@@ -36,5 +36,20 @@ document.getElementById('bookForm').addEventListener('submit',function(e){
     addBookToLibrary(title,author,pages,read);
 
     document.getElementById('bookForm').reset();
+    formDialog.close();
 
+})
+
+/*************Dialog functionality*************** */
+const formDialog = document.getElementById("formDialog")
+const showButton = document.getElementById("showButton")
+const closeButton = document.getElementById("closeButton")
+
+showButton.addEventListener("click",() =>{
+    formDialog.showModal();
+})
+
+closeButton.addEventListener("click",(e)=>{
+    e.preventDefault();
+    formDialog.close();
 })
