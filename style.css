@@ -4,8 +4,8 @@ body{
 }
 
 *{
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     box-sizing: border-box;
+    font-family: 'Playfair Display', serif;
 }
 
 body.dark-theme{
@@ -31,4 +31,61 @@ body{
 h1,
 p{
     color: var(--text-color);
+}
+
+.bookContainer{
+    background-color: red;
+}
+
+header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+h1{
+    font-size: 45px;
+    font-weight: 500;
+    font-style: italic;
+}
+
+.buttonBox{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+#showButton{
+    background-color: #1450A3;
+    font-size: 40px;
+}
+
+.darkModeBtn{
+    background-color: var(--text-color);
+    font-size: 15px;
+}
+
+.darkModeBtn,
+#showButton{
+    color: var(--bkg-color);
+    height: 3rem;
+    width: 3rem;
+    border-radius: 25px;
+    border-style: none;
+    transition: transform .2s; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+
+.darkModeBtn:hover,
+#showButton:hover{
+    transform: scale(1.08);
+    box-shadow:
+    0 0 0.5rem var(--text-color),
+    inset 0 0 0 var(--text-color);
+    color: var(--bkg-color);
 }
