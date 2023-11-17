@@ -23,13 +23,15 @@ function displayLibrary(){
         const removeButton = document.createElement('button');
         const readButton = document.createElement('button');
 
+        bookDiv.classList.add("bookContainer")
+
         bookInfo.textContent = `Title: ${book.title}, Author: ${book.author}, Pages:${book.pages}, Read:${book.read}`
         removeButton.textContent = "Remove"
         readButton.textContent = book.read === "Yes" ? "Read" : "Not Read";
 
         removeButton.addEventListener('click', function(){
             const bookIndex = myLibrary.indexOf(book);
-            if(bookIndex !== 1){
+            if(bookIndex !== -1){
                 myLibrary.splice(bookIndex, 1);
                 displayLibrary();
             }
