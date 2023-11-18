@@ -1,6 +1,8 @@
 body{
     --text-color: #222;
     --bkg-color: #fff;
+    --blue-color: #1450A3;
+    --input-border:rgba(141, 138, 138, 0.5);
 }
 
 *{
@@ -58,7 +60,7 @@ h1{
 }
 
 #showButton{
-    background-color: #1450A3;
+    background-color: var(--blue-color);
     font-size: 40px;
 }
 
@@ -88,4 +90,83 @@ h1{
     0 0 0.5rem var(--text-color),
     inset 0 0 0 var(--text-color);
     color: var(--bkg-color);
+}
+
+#formDialog{
+    border: none;
+    width: clamp(200px, 300px, 40%);
+    height: clamp(345px, 450px, 50%);
+    padding: 0;
+    border-radius: 10px;
+    box-shadow: 3px 4px 10px 0px rgba(0, 0, 0, 0.5);
+}
+
+#bookForm,
+.inputContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.inputContainer > label{
+    align-self: flex-start;
+    font-weight: 600;
+    margin-top: 8px;
+}
+
+#title,
+#author,
+#pages{
+    width: 12rem;
+    height: 1.8rem;
+    border-radius: 4px;
+    border: 1px solid var(--input-border);
+    text-indent: 5px;
+}
+
+#title:focus,
+#author:focus,
+#pages:focus{
+    outline: none;
+    border: 1px solid var(--blue-color);
+    box-shadow: 3px 4px 10px 0px rgba(0, 0, 0, 0.2);
+}
+
+ #readStatus{
+    margin-top: 8px;
+    border: none;
+ }
+
+ #readStatus > legend{
+    font-weight: 600;
+ }
+
+ #readStatus input[type='radio'] {
+    display: none;
+}
+
+#readStatus label {
+    position: relative;
+    padding-left: 30px; 
+    cursor: pointer;
+}
+
+#readStatus label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px; 
+    border: 2px solid var(--input-border);
+    border-radius: 50%;
+    background-color: transparent;
+    transition: background-color 0.3s;
+}
+
+#readStatus input[type='radio']:checked+label:before {
+    background-color: var(--blue-color); 
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); 
 }
