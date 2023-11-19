@@ -78,6 +78,7 @@ showButton.addEventListener("click",() =>{
 
 closeButton.addEventListener("click",(e)=>{
     e.preventDefault();
+    document.getElementById('bookForm').reset();
     formDialog.close();
 })
 
