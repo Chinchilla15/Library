@@ -14,18 +14,21 @@ function addBookToLibrary(title, author, pages, read){
 }
 
 function displayLibrary(){
-    const libraryContainer = document.getElementById('library');
-    libraryContainer.innerHTML = '';
+    const libraryContainerYes = document.querySelector('.bookContainerYes');
+    const libraryContainerNo = document.querySelector('.bookContainerNo');
+
+    libraryContainerYes.innerHTML = '';
+    libraryContainerNo.innerHTML = '';
 
     myLibrary.forEach(book =>{
-        const bookDiv = document.createElement('div');
-        const bookInfo = document.createElement('p');
+        const bookItem = document.createElement('div');
         const removeButton = document.createElement('button');
         const readButton = document.createElement('button');
 
-        bookDiv.classList.add("bookContainer")
+        bookItem.classList.add('bookItem')
 
-        bookInfo.textContent = `Title: ${book.title}, Author: ${book.author}, Pages:${book.pages}, Read:${book.read}`
+        bookItem.innerHTML = `<p>Title: ${book.title}</p><p>Author: ${book.author}</p><p>Pages:${book.pages}</p><p>Read:${book.read}</p>`
+
         removeButton.textContent = "Remove"
         readButton.textContent = book.read === "Yes" ? "Read" : "Not Read";
 
@@ -42,11 +45,14 @@ function displayLibrary(){
             displayLibrary();
         })
     
-        bookDiv.appendChild(bookInfo);
-        bookDiv.appendChild(removeButton);
-        bookDiv.appendChild(readButton);
+        bookItem.appendChild(removeButton);
+        bookItem.appendChild(readButton);
 
-        libraryContainer.appendChild(bookDiv);
+        if(book.read === "Yes"){
+            libraryContainerYes.appendChild(bookItem);
+        }else{
+            libraryContainerNo.appendChild(bookItem)
+        }
     })
 }
 
@@ -62,7 +68,6 @@ document.getElementById('bookForm').addEventListener('submit',function(e){
 
     document.getElementById('bookForm').reset();
     formDialog.close();
-
 })
 
 /**
@@ -108,4 +113,4 @@ darkModeBtn.addEventListener("click", function () {
         : "light";
     }
     localStorage.setItem("theme", theme);
-  });
+});
