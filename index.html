@@ -21,7 +21,7 @@
 
     <dialog id="formDialog">
         <form id="bookForm">
-            <h2>Add new book</h2>
+            <h2>Add New Book</h2>
             <div class="inputContainer">
                 <label for="title">Title</label>
                 <input type="text" id="title" name="title" required>
@@ -34,7 +34,6 @@
                 <label for="pages">Pages</label>
                 <input type="number" id="pages" name="pages" required>
             </div>
-            <!-- <input type="text" id="pages" name="pages" pattern="[0-9]+" title="Please enter a valid number." required> -->
             <fieldset id="readStatus">
                 <legend>Have you read it?</legend>
                 <input type="radio" name="read" id="readYes" value="Yes" checked>
@@ -52,15 +51,30 @@
     <div id="library">
         <h3 class="read">Not read/Pending Books</h3>
         <div class="bookContainerYes">
-            <div class="testYes"></div>
-            <div class="testYes"></div>
-            <div class="testYes"></div>
+            <div class="bookItem">
+                <h4>Dune</h4>
+                <p class="bookAuthor">By: Frank Herbert</p>
+                <p class="bookPages">617 Pages</p>
+                <div class="bookButtons">
+                    <button class="removeButton">
+                        <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 19C13 20.1 13.3 21.12 13.81 22H6C4.89 22 4 21.11 4 20V4C4 2.9 4.89 2 6 2H7V9L9.5 7.5L12 9V2H18C19.1 2 20 2.89 20 4V13.09C19.67 13.04 19.34 13 19 13C15.69 13 13 15.69 13 19M22.54 16.88L21.12 15.47L19 17.59L16.88 15.47L15.47 16.88L17.59 19L15.47 21.12L16.88 22.54L19 20.41L21.12 22.54L22.54 21.12L20.41 19L22.54 16.88Z"></path></svg>
+                    </button>
+                    <button class="readButton">
+                        <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>Update Status</title><path d="M21,9L17,5V8H10V10H17V13M7,11L3,15L7,19V16H14V14H7V11Z"></path></svg>
+                    </button>
+            </div>
+            </div>
         </div>
         <h3 class="notRead">Read Books</h3>
         <div class="bookContainerNo">
-            <div class="testNo"></div>
-            <div class="testNo"></div>
-            <div class="testNo"></div>
+            <div class="bookItem">
+                <h4>Sapiens</h4>
+                <p class="bookAuthor">By: Yuval Noah Harari</p>
+                <p class="bookPages">414 Pages</p>
+                <div class="bookButtons">
+                    <button class="removeButton"><svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 19C13 20.1 13.3 21.12 13.81 22H6C4.89 22 4 21.11 4 20V4C4 2.9 4.89 2 6 2H7V9L9.5 7.5L12 9V2H18C19.1 2 20 2.89 20 4V13.09C19.67 13.04 19.34 13 19 13C15.69 13 13 15.69 13 19M22.54 16.88L21.12 15.47L19 17.59L16.88 15.47L15.47 16.88L17.59 19L15.47 21.12L16.88 22.54L19 20.41L21.12 22.54L22.54 21.12L20.41 19L22.54 16.88Z"></path></svg></button>
+                    <button class="readButton"><svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>Update Status</title><path d="M21,9L17,5V8H10V10H17V13M7,11L3,15L7,19V16H14V14H7V11Z"></path></svg></button>
+            </div>
         </div>
     </div>
 
