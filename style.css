@@ -86,7 +86,8 @@ h1{
 .darkModeBtn:hover,
 #showButton:hover,
 #addButton:hover,
-#closeButton:hover{
+#closeButton:hover,
+.removeButton:hover{
     transform: scale(1.08);
     box-shadow:
     0 0 0.5rem var(--text-color),
@@ -238,9 +239,27 @@ gap: 10px;
 .bookItem{
     background-color: blue;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     border: 1px solid black;
     padding: 8px;
     font-size: 14px;
+    border-radius: 12px;
+}
+
+.bookButtons{
+    display: flex;
+    gap: 20px
+}
+
+.removeButton{
+    background-color: #C70039 ;
+    color: var(--text-color);
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+    border-style: none;
+    transition: transform .2s; 
+    cursor: pointer;
 }
