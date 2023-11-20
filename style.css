@@ -66,7 +66,6 @@ h1{
 
 .darkModeBtn{
     background-color: var(--text-color);
-    font-size: 15px;
 }
 
 .darkModeBtn,
@@ -87,7 +86,8 @@ h1{
 #showButton:hover,
 #addButton:hover,
 #closeButton:hover,
-.removeButton:hover{
+.removeButton:hover,
+.readButton:hover{
     transform: scale(1.08);
     box-shadow:
     0 0 0.5rem var(--text-color),
@@ -205,17 +205,18 @@ gap: 10px;
 
 #library{
     display: grid;
+    grid-template-rows: 60px 1fr;
     grid-template-columns: repeat(2,1fr);
     gap: 24px;
 }
 
 .bookContainerYes{
-    grid-row: 1/2;
+    grid-row: 2/3;
     grid-column: 2/3;
 }
 
 .bookContainerNo{
-    grid-row: 1/2;
+    grid-row: 2/2;
     grid-column: 1/2;
 }
 
@@ -230,10 +231,18 @@ gap: 10px;
 
 .testYes{
     background-color: red;
+    border: 1px solid black;
+    padding: 8px;
+    font-size: 14px;
+    border-radius: 12px;
 }
 
 .testNo{
     background-color: blue;
+    border: 1px solid black;
+    padding: 8px;
+    font-size: 14px;
+    border-radius: 12px;
 }
 
 .bookItem{
@@ -253,8 +262,8 @@ gap: 10px;
     gap: 20px
 }
 
-.removeButton{
-    background-color: #C70039 ;
+.removeButton,
+.readButton{
     color: var(--text-color);
     height: 2rem;
     width: 2rem;
@@ -262,4 +271,23 @@ gap: 10px;
     border-style: none;
     transition: transform .2s; 
     cursor: pointer;
+}
+
+.removeButton{
+    background-color: red;
+}
+
+.readButton{
+    background-color: purple;
+}
+
+.read,
+.notRead{
+    display: flex;
+    justify-content: center;
+    color: var(--text-color);
+    font-size: 32px;
+    align-items: center;
+    margin: 0
+    
 }
