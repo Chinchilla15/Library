@@ -43,7 +43,7 @@ function displayLibrary(){
         readIcon.setAttribute("viewBox", "0 0 24 24")
         readIcon.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>Update Status</title><path d="M21,9L17,5V8H10V10H17V13M7,11L3,15L7,19V16H14V14H7V11Z" /></svg>'
 
-        bookItem.innerHTML = `<p>Title: ${book.title}</p><p>Author: ${book.author}</p><p>Pages:${book.pages}</p>`
+        bookItem.innerHTML = `<h4>${book.title}</h4><p class="bookAuthor">By: ${book.author}</p><p class="bookPages">${book.pages} Pages</p>`
 
         removeButton.addEventListener('click', function(){
             const bookIndex = myLibrary.indexOf(book);
