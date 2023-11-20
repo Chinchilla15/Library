@@ -1,8 +1,9 @@
 body{
-    --text-color: #222;
-    --bkg-color: #fff;
+    --text-color: #1B1B1B;
+    --bkg-color: #FBFBFB;
     --blue-color: #1450A3;
     --input-border:rgba(141, 138, 138, 0.5);
+    --red-color: #C70039;
     margin: 0;
     display: grid;
     grid-template-rows: 1fr 4.5fr;
@@ -14,18 +15,18 @@ body{
 }
 
 body.dark-theme{
-    --text-color: #eee;
-    --bkg-color: #121212;
+    --text-color: #FBFBFB;
+    --bkg-color: #1B1B1B;
 }
 
 @media (prefers-color-scheme: dark){
     body{
-        --text-color: #eee;
-        --bkg-color: #121212;
+        --text-color: #FBFBFB;
+        --bkg-color: #1B1B1B;
     }
     body.light-theme{
-        --text-color: #222;
-        --bkg-color: #fff;
+        --text-color: #1B1B1B;
+        --bkg-color: #FBFBFB;
     }
 }
 
@@ -200,7 +201,7 @@ gap: 10px;
 }
 
 #closeButton{
-    background-color: #C70039 ;
+    background-color: var(--red-color) ;
 }
 
 #library{
@@ -229,44 +230,48 @@ gap: 10px;
     grid-template-rows: repeat(3,1fr);
 }
 
-.testYes{
-    background-color: red;
-    border: 1px solid black;
-    padding: 8px;
-    font-size: 14px;
-    border-radius: 12px;
-}
-
-.testNo{
-    background-color: blue;
-    border: 1px solid black;
-    padding: 8px;
-    font-size: 14px;
-    border-radius: 12px;
-}
-
 .bookItem{
-    background-color: blue;
+    background-color: #0083E2;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    border: 1px solid black;
-    padding: 8px;
+    box-shadow: 4px 8px 12px rgba(0, 0, 0, 0.8);
+    padding: 20px;
     font-size: 14px;
     border-radius: 12px;
+}
+
+.bookItem > h4{
+    margin: 0;
+    color: var(--text-color);
+    align-self: flex-start;
+    justify-self: flex-start;
+    font-size: 32px
+}
+
+.bookAuthor{
+   margin:0;
+   font-size: 20px;
+   align-self: flex-start;
+}
+
+.bookPages{
+    margin: 0;
+    font-size: 16px;
+    align-self: flex-start;
 }
 
 .bookButtons{
     display: flex;
-    gap: 20px
+    gap: 20px;
+    margin-top: 20%;
 }
 
 .removeButton,
 .readButton{
     color: var(--text-color);
-    height: 2rem;
-    width: 2rem;
+    height: 2.5rem;
+    width: 2.5rem;
     border-radius: 50%;
     border-style: none;
     transition: transform .2s; 
@@ -274,11 +279,11 @@ gap: 10px;
 }
 
 .removeButton{
-    background-color: red;
+    background-color: var(--red-color);
 }
 
 .readButton{
-    background-color: purple;
+    background-color: #C86632;
 }
 
 .read,
@@ -288,6 +293,6 @@ gap: 10px;
     color: var(--text-color);
     font-size: 32px;
     align-items: center;
-    margin: 0
-    
+    margin: 0;
+    font-style: italic;
 }
