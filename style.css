@@ -3,6 +3,9 @@ body{
     --bkg-color: #fff;
     --blue-color: #1450A3;
     --input-border:rgba(141, 138, 138, 0.5);
+    margin: 0;
+    display: grid;
+    grid-template-rows: 1fr 4.5fr;
 }
 
 *{
@@ -35,15 +38,12 @@ p{
     color: var(--text-color);
 }
 
-.bookContainer{
-    background-color: red;
-}
-
 header{
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    margin-bottom: 16px;
 }
 
 h1{
@@ -200,4 +200,32 @@ gap: 10px;
 
 #closeButton{
     background-color: #C70039 ;
+}
+
+#library{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+}
+
+.bookContainerYes {
+    grid-column: 2/3;
+    grid-row: 1/2   ;
+    background-color: blue;
+}
+
+.bookContainerNo{
+    grid-column: 1/2;
+    grid-row: 1/2;
+    background-color: red;
+}
+
+.bookItem{
+    background-color: blue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+    padding: 8px;
+    font-size: 14px;
 }
