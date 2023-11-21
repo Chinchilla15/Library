@@ -134,3 +134,6 @@ darkModeBtn.addEventListener("click", function () {
     }
     localStorage.setItem("theme", theme);
 });
+
+addBookToLibrary("Dune", "Frank Herbert", 617, "Yes");
+addBookToLibrary("Sapiens", "Yuval Noah Harari", 414, "No");
