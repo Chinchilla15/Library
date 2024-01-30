@@ -6,14 +6,14 @@ class Book {
         this.author = author;
         this.pages = pages;
         this.read = read;
-    }
-}
+    };
+};
 
 function addBookToLibrary(title, author, pages, read){
     const newBook = new Book (title, author, pages, read);
     myLibrary.push(newBook);
     displayLibrary();
-}
+};
 
 function displayLibrary(){
     const libraryContainerYes = document.querySelector('.bookContainerYes');
@@ -42,23 +42,23 @@ function displayLibrary(){
         const readIcon = document.createElementNS("http://www.w3.org/2000/svg", "svg");
         readIcon.setAttribute("fill", "currentColor");
         readIcon.setAttribute("xmlns", "http://www.w3.org/2000/svg");
-        readIcon.setAttribute("viewBox", "0 0 24 24")
-        readIcon.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>Update Status</title><path d="M21,9L17,5V8H10V10H17V13M7,11L3,15L7,19V16H14V14H7V11Z" /></svg>'
+        readIcon.setAttribute("viewBox", "0 0 24 24");
+        readIcon.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>Update Status</title><path d="M21,9L17,5V8H10V10H17V13M7,11L3,15L7,19V16H14V14H7V11Z" /></svg>';
 
-        bookItem.innerHTML = `<h4>${book.title}</h4><p class="bookAuthor">By: ${book.author}</p><p class="bookPages">${book.pages} Pages</p>`
+        bookItem.innerHTML = `<h4>${book.title}</h4><p class="bookAuthor">By: ${book.author}</p><p class="bookPages">${book.pages} Pages</p>`;
 
         removeButton.addEventListener('click', function(){
             const bookIndex = myLibrary.indexOf(book);
             if(bookIndex !== -1){
                 myLibrary.splice(bookIndex, 1);
                 displayLibrary();
-            }
-        })
+            };
+        });
 
         readButton.addEventListener('click', function(){
             book.read = book.read === "Yes" ? "No" : "Yes";
             displayLibrary();
-        })
+        });
     
         removeButton.appendChild(removeIcon);
         readButton.appendChild(readIcon);
@@ -74,40 +74,59 @@ function displayLibrary(){
             libraryContainerYes.appendChild(bookItem);
         }else{
             libraryContainerNo.appendChild(bookItem);
-        }
-    })
-}
+        };
+    });
+};
 
-document.getElementById('bookForm').addEventListener('submit',function(e){
+const form = document.getElementById('bookForm');
+const title = document.getElementById('title');
+const author = document.getElementById('author');
+const pages = document.getElementById('pages');
+const read = document.querySelector('input[name="read"]:checked');
+
+title.addEventListener('input',()=>{
+    if(title.validity.tooShort){
+        title.setCustomValidity("Please double check the title. Must have more than 2 characters");
+    } else{
+        title.setCustomValidity("");
+    };
+});
+
+author.addEventListener('input', () => {
+    if (author.validity.tooShort) {
+        author.setCustomValidity("Too short! Must have more than 2 characters");
+    } else if (/\d/.test(author.value)) { 
+        author.setCustomValidity("Invalid input: Numbers are not allowed");
+    } else {
+        author.setCustomValidity("");
+    };
+});
+
+form.addEventListener('submit',function(e){
     e.preventDefault();
 
-    const title = document.getElementById('title').value;
-    const author = document.getElementById('author').value;
-    const pages = document.getElementById('pages').value;
-    const read = document.querySelector('input[name="read"]:checked').value;
-
-    addBookToLibrary(title,author,pages,read);
+    addBookToLibrary(title.value , author.value, pages.value , read.value);
 
     document.getElementById('bookForm').reset();
     formDialog.close();
-})
+});
 
 /**
  * Dialog Funcionality
  */
-const formDialog = document.getElementById("formDialog")
-const showButton = document.getElementById("showButton")
-const closeButton = document.getElementById("closeButton")
+const formDialog = document.getElementById("formDialog");
+const showButton = document.getElementById("showButton");
+const closeButton = document.getElementById("closeButton");
 
 showButton.addEventListener("click",() =>{
     formDialog.showModal();
-})
+});
 
 closeButton.addEventListener("click",(e)=>{
     e.preventDefault();
     document.getElementById('bookForm').reset();
     formDialog.close();
-})
+});
 
 /**
  * Dark Mode
